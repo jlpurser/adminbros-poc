@@ -1,7 +1,12 @@
+import AdminBro from 'admin-bro';
 import parser from 'body-parser';
 import cors from 'cors';
 import express, { Request, Response } from 'express';
+import mongoose from 'mongoose';
+import { adminOptions } from './admin/options';
 import { env } from './config';
+import { User } from './models/model.user';
+import { buildAdminRouter } from './routes/admin';
 import { users } from './routes/users';
 
 const app = express();
@@ -10,14 +15,18 @@ const app = express();
 
 /** Configure dynamic origins */
 const corsOptions: cors.CorsOptions = {
-  origin: (origin, callback) => {
+  origin: (origin, next) => {
     if (origin && env.clients().indexOf(origin) !== -1) {
-      callback(null, true);
+      next(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      next(new Error('Not allowed by CORS'));
     }
   },
 };
+
+const admin = new AdminBro(adminOptions);
+
+app.use(admin.options.rootPath, buildAdminRouter(admin));
 
 /** Allow requests from client app */
 app.use(cors(env.nodeEnv() === 'production' ? corsOptions : undefined));
@@ -42,9 +51,25 @@ app.get('/ping', (_req: Request, res: Response) => {
 
 app.use('/api/v1/users', users);
 
-// ----------------------- Open Port -----------------------------
-app.listen(env.port(), () => {
-  if (env.nodeEnv() !== 'production') {
-    console.log(`Running on port ${env.port()}`);
-  }
+app.get('/users', (req: Request, res: Response) => {
+  User.find({}).then(data => {
+    res.json(data);
+  });
 });
+
+// ----------------------- Start up ---------------------------
+export const startUp = async () => {
+  // Connect to mongodb
+  await mongoose.connect('mongodb://localhost:27017/test', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  });
+
+  // Listen on port
+  app.listen(env.port(), () => {
+    if (env.nodeEnv() !== 'production') {
+      console.log(`Running on port ${env.port()}`);
+    }
+  });
+};
