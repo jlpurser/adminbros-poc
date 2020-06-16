@@ -1,0 +1,61 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  },
+  "rules": {
+    "import/extensions": ["error", "never"],
+    "no-console": "off",
+    "comma-dangle": [
+      "error",
+      {
+        "functions": "never",
+        "arrays": "only-multiline",
+        "objects": "only-multiline",
+        "imports": "never",
+        "exports": "never"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "indent": "off",
+    "import/no-named-default": "off",
+    "no-restricted-globals": "off",
+    "implicit-arrow-linebreak": "off",
+    "arrow-parens": "off",
+    "no-unused-expressions": "off",
+    "no-confusing-arrow": "off",
+    "prefer-promise-reject-errors": "off",
+    "operator-linebreak": "off",
+    "wrap-iife": "off",
+    "import/prefer-default-export": "off",
+    "function-paren-newline": "off"
+  }
+}

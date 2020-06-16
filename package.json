@@ -1,0 +1,37 @@
+{
+  "name": "mfgnetwork-node",
+  "version": "0.0.1",
+  "description": "API for mfgnetwork FE",
+  "main": "build/start.js",
+  "scripts": {
+    "db": "json-server --watch src/db/db.json",
+    "dev": "nodemon --config \"./util/nodemon.json\"/",
+    "build": "rm -rf ./build/ && tsc",
+    "start": "node build/start.js"
+  },
+  "author": "Smashing Boxes",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.7.6",
+    "@types/uuid": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-typescript": "^0.14.0",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "uuid": "^8.1.0"
+  }
+}

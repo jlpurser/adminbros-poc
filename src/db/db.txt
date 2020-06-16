@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "6ed58d04-077e-4d49-9b6b-2c99ad3fcc61",
+      "firstName": "Grady",
+      "lastName": "Knight",
+      "email": "grady.knight@smashingboxes.com"
+    },
+    {
+      "id": "96b2ccb5-a622-4502-93cd-23452967811a",
+      "firstName": "Geoff",
+      "lastName": "Register",
+      "email": "geoff.register@smashingboxes.com"
+    },
+    {
+      "id": "28aefaf6-95c5-45eb-a4f7-0a7d766934c9",
+      "firstName": "Swain",
+      "lastName": "Molster",
+      "email": "swain.molster@smashingboxes.com"
+    },
+    {
+      "id": "21cd5d55-6528-4488-ac44-61bb14d1bc70",
+      "firstName": "Rex",
+      "lastName": "Wills",
+      "email": "rex.wills@smashingboxes.com"
+    },
+    {
+      "id": "5b3d23cb-c8da-4869-baee-50790b800844",
+      "firstName": "Jeremy",
+      "lastName": "Purser",
+      "email": "jeremy.purser@smashingboxes.com"
+    },
+    {
+      "id": "12db21a2-817b-4d31-878e-165187965e44",
+      "firstName": "Hayden",
+      "lastName": "Breedlove",
+      "email": "hayden.breedlove@smashingboxes.com"
+    }
+  ]
+}
