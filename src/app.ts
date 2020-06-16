@@ -12,6 +12,9 @@ import { users } from './routes/users';
 const app = express();
 
 // ----------------------- Middleware -------------------------
+const admin = new AdminBro(adminOptions);
+
+app.use(admin.options.rootPath, buildAdminRouter(admin));
 
 /** Configure dynamic origins */
 const corsOptions: cors.CorsOptions = {
@@ -23,10 +26,6 @@ const corsOptions: cors.CorsOptions = {
     }
   },
 };
-
-const admin = new AdminBro(adminOptions);
-
-app.use(admin.options.rootPath, buildAdminRouter(admin));
 
 /** Allow requests from client app */
 app.use(cors(env.nodeEnv() === 'production' ? corsOptions : undefined));
