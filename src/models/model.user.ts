@@ -10,6 +10,13 @@ export const UserSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  address: {
+    type: String,
+  },
+  isPerformer: {
+    type: Boolean,
+    require: true,
+  },
 });
 
 export const User = mongoose.model('User', UserSchema);
